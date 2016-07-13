@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html ng-app="studentsApp">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Student Application">
+
+	<title>Student App</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<script src="core.js"></script>
+</head>
+
+<body ng-controller="MainController">
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col-md-5">
+				<h2 ng-hide="updating">öğrenci kaydet</h2>
+
+
+				<form class="form-horizontal" role="form" ng-submit="setStudent()">
+					<div class="form-group">
+						<label class="col-sm-4 control-label">Adı Soyadı :</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" placeholder="Adı Soyadı" ng-model="formData.Name" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-4 control-label">okul numarası :</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" placeholder="Okul numarası" ng-model="formData.SchollNumber">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-4 control-label">Ders adı :</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" placeholder="Ders adı" ng-model="formData.LessonName">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-4 control-label">ders notu:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" placeholder="Ders Notu" ng-model="formData.LessonScore">
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary pull-right">Kaydet</button>
+					<button type="button" ng-click="clearForm()" class="btn btn-default pull-right clear">Temizle</button>
+				</form>
+			</div>
+
+			<div class="col-md-7">
+				<h2>Kayıtlı öğrenciler<span class="badge">{{students.length}}</span></h2>
+				<ul class="list-group">
+					<li class="list-group-item" ng-repeat="student in students">
+						<span class="name">{{student.Name}}</span>,<span class="region">{{student.SchollNumber}}</span>,<span class="region">{{student.LessonScore}}</span>,<span class="region">{{student.LessonName}}</span>
+
+					</li>
+				</ul>
+
+			</div>
+		</div>
+
+
+	</div>
+</body>
+
+</html>

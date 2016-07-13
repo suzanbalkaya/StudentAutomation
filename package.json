@@ -1,0 +1,11 @@
+{
+  "name": "Students",
+  "description": "Application",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "body-parser": "~1.0.1",
+    "express": "3.x",
+    "mongodb": "^2.2.1"
+  }
+}
